@@ -1,7 +1,12 @@
 ## Course Project 1
 ## Generate Figure 2
 ##
-## Read in data file
+## Read in data file if it does not already exist
+if(!file.exists("household_power_consumption.txt"))
+{dir.create("household_power_consumption.txt")
+}
+fileURL <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
+download.file(fileURL, destfile= "household_power_consumption.txt", method = "curl")
 df <- read.table("household_power_consumption.txt", 
                  sep = ";", header = TRUE, na.strings = "?")
 
